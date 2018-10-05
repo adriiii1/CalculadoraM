@@ -7,23 +7,22 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/Expressionh"
-        android:layout_width="match_parent"
-        android:layout_height="60sp"
-        android:gravity="end"
-        android:ellipsize="start"
-        android:textSize="40sp"
-        android:singleLine="true" />
-
-    <TextView
         android:id="@+id/Resulth"
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:gravity="end"
         android:ellipsize="end"
-        android:textSize="30sp"
-        android:singleLine="true" />
+        android:gravity="end"
+        android:singleLine="true"
+        android:textSize="36sp" />
 
+    <TextView
+        android:id="@+id/Expressionh"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:ellipsize="start"
+        android:gravity="end"
+        android:singleLine="true"
+        android:textSize="32sp" />
 
 
     <LinearLayout

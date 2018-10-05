@@ -70,10 +70,6 @@ class MainActivity : AppCompatActivity() {
         Clear.setOnClickListener{
             Expression.text=""
             Result.text=""
-            operacion = ""
-            calcula = 0
-            guarda=""
-            guarda2 = ""
         }
 
         Borrar.setOnClickListener{
@@ -135,8 +131,8 @@ class MainActivity : AppCompatActivity() {
 
         }
         var hexString=java.lang.Long.toHexString(calcula)
-        Expression.text= calcula.toString()
-        Resulth.text = hexString
+        Expressionh.text= calcula.toString()
+        Resulth.text = hexString.toUpperCase()
         guarda= Resulth.text.toString()
     }
     fun calcuH(){
@@ -185,7 +181,7 @@ class MainActivity : AppCompatActivity() {
 
         }
         Nueveh.setOnClickListener(){
-            guarda+="1"
+            guarda+="9"
             Expressionh.setText(guarda)
 
         }
@@ -227,30 +223,34 @@ class MainActivity : AppCompatActivity() {
             operacion="+"
             guarda2 = guarda
             guarda=""
-            Resulth.text=guarda+"+"
+            Expressionh.text=guarda2+"+"
         }
         Menosh.setOnClickListener(){
             operacion="-"
             guarda2 = guarda
             guarda=""
-            Resulth.text=guarda+"-"
+            Resulth.text=guarda2+"-"
         }
         Porh.setOnClickListener(){
             operacion="*"
             guarda2 = guarda
             guarda=""
-            Resulth.text=guarda+"*"
+            Resulth.text=guarda2+"*"
         }
         Divh.setOnClickListener(){
             operacion="/"
             guarda2 = guarda
             guarda=""
-            Resulth.text=guarda+"/"
+            Resulth.text=guarda2+"/"
         }
 
         Clearh.setOnClickListener{
             Expressionh.text=""
             Resulth.text=""
+            operacion = ""
+            calcula = 0
+            guarda=""
+            guarda2 = ""
         }
 
         var memoriah: String = ""
@@ -265,19 +265,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         MemoMash.setOnClickListener{
-            if(Expressionh.text.isNotEmpty()){
-                Expression.setText(memoriah + "+" + Expressionh.text.toString())
-            }else{
-                Expressionh.setText(memoriah)
-            }
+            guarda2=memoriah
+            Resulth.text=guarda2+"+"
+            operacion="+"
         }
 
         Borrarh.setOnClickListener{
-            val string = Expressionh.text.toString()
-            if (string.isNotEmpty()){
-                Expressionh.text = string.substring(0, string.length-1)
+            if(Expressionh.text.toString()==""){
+                guarda=""
+                Expressionh.setText(guarda)
+            }else{
+                var borrarHex=Expressionh.text
+                val ultimo=borrarHex.length
+                var borrado=borrarHex.substring(0,ultimo-1)
+                guarda=borrado
+                Expressionh.setText(guarda)
             }
-            Resulth.text=""
         }
 
         Igualh.setOnClickListener(){
