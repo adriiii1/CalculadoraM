@@ -39,6 +39,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    var operacion = ""
+    var calcula: Long=0
+    var guarda=""
+    var guarda2 = ""
 
     fun calcu(){
         Uno.setOnClickListener { appendOnExpressionCalcu(string = "1", Clear = true) }
@@ -66,6 +70,10 @@ class MainActivity : AppCompatActivity() {
         Clear.setOnClickListener{
             Expression.text=""
             Result.text=""
+            operacion = ""
+            calcula = 0
+            guarda=""
+            guarda2 = ""
         }
 
         Borrar.setOnClickListener{
@@ -115,9 +123,7 @@ class MainActivity : AppCompatActivity() {
         return parseLong(hex, 16)
     }
 
-    var operacion = ""
-    var calcula: Long=0
-    var guarda=""
+
 
     fun calH(num1: Long, num2: Long) {
         when(operacion){
@@ -136,101 +142,110 @@ class MainActivity : AppCompatActivity() {
     fun calcuH(){
         Ceroh.setOnClickListener() {
             guarda += "0"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
         }
         Unoh.setOnClickListener(){
             guarda+="1"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
 
         }
         Dosh.setOnClickListener(){
             guarda+="2"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
 
         }
         Tresh.setOnClickListener(){
             guarda+="3"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
 
         }
         Cuatroh.setOnClickListener(){
             guarda+="4"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
 
         }
         Cincoh.setOnClickListener(){
             guarda+="5"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
 
         }
         Seish.setOnClickListener(){
             guarda+="6"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
 
         }
         Sieteh.setOnClickListener(){
             guarda+="7"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
 
         }
         Ochoh.setOnClickListener(){
             guarda+="8"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
 
         }
         Nueveh.setOnClickListener(){
             guarda+="1"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
 
         }
 
         //Letras
         a.setOnClickListener(){
             guarda+="A"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
 
         }
         b.setOnClickListener(){
             guarda+="B"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
 
         }
         c.setOnClickListener(){
             guarda+="C"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
 
         }
         d.setOnClickListener(){
             guarda+="D"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
 
         }
         e.setOnClickListener(){
             guarda+="E"
-            Expression.setText(guarda)
+            Expressionh.setText(guarda)
 
         }
         f.setOnClickListener(){
             guarda+="F"
-            Expression.setText(guarda)
-
+            Expressionh.setText(guarda)
         }
+
+        //Operaciones
 
         Mash.setOnClickListener(){
             operacion="+"
-            Result.text=guarda+"+"
+            guarda2 = guarda
+            guarda=""
+            Resulth.text=guarda+"+"
         }
         Menosh.setOnClickListener(){
             operacion="-"
-            Result.text=guarda+"-"
+            guarda2 = guarda
+            guarda=""
+            Resulth.text=guarda+"-"
         }
         Porh.setOnClickListener(){
             operacion="*"
-            Result.text=guarda+"*"
+            guarda2 = guarda
+            guarda=""
+            Resulth.text=guarda+"*"
         }
         Divh.setOnClickListener(){
             operacion="/"
-            Result.text=guarda+"/"
+            guarda2 = guarda
+            guarda=""
+            Resulth.text=guarda+"/"
         }
 
         Clearh.setOnClickListener{
@@ -263,6 +278,15 @@ class MainActivity : AppCompatActivity() {
                 Expressionh.text = string.substring(0, string.length-1)
             }
             Resulth.text=""
+        }
+
+        Igualh.setOnClickListener(){
+            if(guarda2=="") guarda2="0"
+            try {
+                calH(toHex(guarda2),toHex(guarda))
+            }catch (e: ArithmeticException){
+                Resulth.text="Indeterminación"
+            }
         }
 
     }

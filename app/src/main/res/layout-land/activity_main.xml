@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/Expressionh"
         android:layout_width="match_parent"
-        android:layout_height="80sp"
+        android:layout_height="60sp"
         android:gravity="end"
         android:ellipsize="start"
         android:textSize="40sp"
@@ -18,7 +18,7 @@
     <TextView
         android:id="@+id/Resulth"
         android:layout_width="match_parent"
-        android:layout_height="70sp"
+        android:layout_height="50sp"
         android:gravity="end"
         android:ellipsize="end"
         android:textSize="30sp"
@@ -40,9 +40,9 @@
 
 
             <TextView
-                android:id="@+id/MemoMash"
+                android:id="@+id/Clearh"
                 style="@style/ActionButtonStyle"
-                android:text="M+"
+                android:text="CE"
                 />
 
             <TextView
@@ -82,9 +82,9 @@
                 android:text="*"
                 />
             <TextView
-                android:id="@+id/Clearh"
+                android:id="@+id/MemoMash"
                 style="@style/ActionButtonStyle"
-                android:text="CE"
+                android:text="M+"
                 />
 
             <TextView
